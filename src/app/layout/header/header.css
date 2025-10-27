@@ -1,0 +1,49 @@
+
+/*search form*/
+.searchform {
+  position: relative;
+}
+.searchform input {
+  height: 42px;
+}
+.searchform button {
+  border-radius: 0 4px 4px 0;
+  border: 0;
+  background-color: #f4f5f9;
+  box-shadow: 0 !important;
+  width: 70px;
+  height: 42px;
+}
+.searchform button:hover {
+  background-color: #3BB77E;
+}
+.searchform button:hover i {
+  color: #fff;
+}
+.searchform .btn-light {
+  box-shadow: none !important;
+  border-left: 1px solid #e1e1e1;
+}
+
+.form-check-input:checked {
+  background-color: #3BB77E;
+  border-color: #3BB77E;
+}
+
+.btn-light {
+  background-color: transparent;
+  border-color: #c0dbd9;
+  box-shadow: none;
+  padding: 0.5rem 0.95rem;
+}
+.btn-light:hover {
+  background-color: #3BB77E;
+  color: #fff !important;
+}
+.btn-light:hover i {
+  color: #fff;
+}
+.btn-light i {
+  color: #adb5bd;
+}
+

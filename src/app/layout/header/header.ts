@@ -3,8 +3,9 @@ import { Categories } from "../../ecommerce/pages/categories/categories";
 
 @Component({
   selector: 'app-header',
-  imports: [Categories],
+  imports: [],
   templateUrl: './header.html',
+  styleUrl: './header.css',
 })
 export class Header {
 

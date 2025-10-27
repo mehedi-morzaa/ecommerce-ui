@@ -1,0 +1,11 @@
+.btn-icon {
+  text-align: center;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.btn-icon:hover {
+  background-color: rgba(108, 117, 125, 0.15);
+}
+.btn-icon:focus {
+  box-shadow: none;
+}
