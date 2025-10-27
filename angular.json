@@ -5,7 +5,25 @@
   "projects": {
     "ecommerce-ui": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+            "style": "none",
+            "standalone": true,
+            "skipTests": true 
+        },
+        "@schematics/angular:service": {
+            "skipTests": true
+        },
+        "@schematics/angular:directive": {
+            "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+            "skipTests": true
+        },
+        "@schematics/angular:class": {
+            "skipTests": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -18,7 +36,8 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "/assets"
               }
             ],
             "styles": [
@@ -32,6 +51,12 @@
           },
           "configurations": {
             "production": {
+                "fileReplacements": [
+                  {
+                      "replace": "src/environments/environment.ts",
+                      "with": "src/environments/environment.prod.ts"
+                  }
+                ],
               "budgets": [
                 {
                   "type": "initial",
@@ -56,6 +81,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+                "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "buildTarget": "ecommerce-ui:build:production"
