@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { Categories } from './ecommerce/pages/categories/categories';
+import { MasterPage } from './ecommerce/pages/master-page/master-page';
 
 export const routes: Routes = [
-    {path: '', component: Categories}
+    {path: '', component: MasterPage}
 ];

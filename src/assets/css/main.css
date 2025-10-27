@@ -324,7 +324,6 @@ body.aside-mini .main-wrap {
 body.aside-mini .navbar-aside {
   max-width: 80px;
   overflow: visible;
-  position: absolute;
   min-height: 100%;
   bottom: auto;
   overflow: unset !important;
