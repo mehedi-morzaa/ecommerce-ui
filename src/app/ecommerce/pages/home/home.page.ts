@@ -3,10 +3,10 @@ import { PopularProducts } from "../popular-products/popular-products";
 import { Categories } from "../categories/categories";
 
 @Component({
-  selector: 'app-master-page',
+  selector: 'page-home',
   imports: [PopularProducts, Categories],
-  templateUrl: './master-page.html',
+  templateUrl: './home.page.html',
 })
-export class MasterPage {
+export class HomePage {
 
 }
