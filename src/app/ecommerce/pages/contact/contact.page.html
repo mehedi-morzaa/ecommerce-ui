@@ -11,64 +11,59 @@
             <div class="container pt-50">
                 <div class="row">
                     <div class="col-xl-10 col-lg-12 m-auto">
+
                         <section class="mb-50">
+
+                          <!-- branch -->
                             <div class="row mb-60">
+                              @for (item of branches(); track $index) {
                                 <div class="col-md-4 mb-4 mb-md-0">
-                                    <h4 class="mb-15 text-brand">Office</h4>
-                                    205 North Michigan Avenue, Suite 810<br />
-                                    Chicago, 60601, USA<br />
-                                    <abbr title="Phone">Phone:</abbr> (123) 456-7890<br />
-                                    <abbr title="Email">Email: </abbr>contact@Evara.com<br />
+                                    <h4 class="mb-15 text-brand">{{item.branchName}}</h4>
+                                    <p>{{item.addressLine1}}</p>
+                                    <abbr title="Phone">Phone:</abbr> {{item.phone}}<br />
+                                    <abbr title="Email">Email: </abbr>{{item.email}}<br />
                                     <a class="btn btn-sm font-weight-bold text-white mt-20 border-radius-5 btn-shadow-brand hover-up"><i class="fi-rs-marker mr-5"></i>View map</a>
                                 </div>
-                                <div class="col-md-4 mb-4 mb-md-0">
-                                    <h4 class="mb-15 text-brand">Studio</h4>
-                                    205 North Michigan Avenue, Suite 810<br />
-                                    Chicago, 60601, USA<br />
-                                    <abbr title="Phone">Phone:</abbr> (123) 456-7890<br />
-                                    <abbr title="Email">Email: </abbr>contact@Evara.com<br />
-                                    <a class="btn btn-sm font-weight-bold text-white mt-20 border-radius-5 btn-shadow-brand hover-up"><i class="fi-rs-marker mr-5"></i>View map</a>
-                                </div>
-                                <div class="col-md-4">
-                                    <h4 class="mb-15 text-brand">Shop</h4>
-                                    205 North Michigan Avenue, Suite 810<br />
-                                    Chicago, 60601, USA<br />
-                                    <abbr title="Phone">Phone:</abbr> (123) 456-7890<br />
-                                    <abbr title="Email">Email: </abbr>contact@Evara.com<br />
-                                    <a class="btn btn-sm font-weight-bold text-white mt-20 border-radius-5 btn-shadow-brand hover-up"><i class="fi-rs-marker mr-5"></i>View map</a>
-                                </div>
+                              }
                             </div>
+
+                            <!-- contact -->
                             <div class="row">
                                 <div class="col-xl-8">
                                     <div class="contact-from-area padding-20-row-col">
                                         <h5 class="text-brand mb-10">Contact form</h5>
                                         <h2 class="mb-10">Drop Us a Line</h2>
                                         <p class="text-muted mb-30 font-sm">Your email address will not be published. Required fields are marked *</p>
-                                        <form class="contact-form-style mt-30" id="contact-form" action="#" method="post">
+                                        <form class="contact-form-style mt-30" [formGroup]="contactForm" (ngSubmit)="postContact()" novalidate>
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6">
                                                     <div class="input-style mb-20">
-                                                        <input name="name" placeholder="First Name" type="text" />
+                                                        <input name="name" placeholder="FullName" type="text" formControlName="fullName"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6">
                                                     <div class="input-style mb-20">
-                                                        <input name="email" placeholder="Your Email" type="email" />
+                                                        <input name="email" placeholder="Your Email" type="email" formControlName="email"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6">
                                                     <div class="input-style mb-20">
-                                                        <input name="telephone" placeholder="Your Phone" type="tel" />
+                                                        <input name="telephone" placeholder="Your Phone" type="tel" formControlName="phone"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6">
                                                     <div class="input-style mb-20">
-                                                        <input name="subject" placeholder="Subject" type="text" />
+                                                            <select formControlName="contactSubjectId">
+                                                              <option disabled selected [value]="0">Select Subject</option>
+                                                              @for (item of contactSubjects(); track $index) {
+                                                               <option [value]="item.id">{{item.subject}}</option>
+                                                              }
+                                                            </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12">
                                                     <div class="textarea-style mb-30">
-                                                        <textarea name="message" placeholder="Message"></textarea>
+                                                        <textarea name="message" placeholder="Message" formControlName="message"></textarea>
                                                     </div>
                                                     <button class="submit submit-auto-width" type="submit">Send message</button>
                                                 </div>
@@ -87,3 +82,16 @@
             </div>
         </div>
     </main>
+
+    <style>
+      select {
+    border: 1px solid #ececec;
+    border-radius: 10px;
+    height: 64px;
+    box-shadow: none;
+    padding-left: 20px;
+    font-size: 16px;
+    width: 100%;
+    background-color: white;
+}
+    </style>
