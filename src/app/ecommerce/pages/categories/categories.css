@@ -1,0 +1,3 @@
+.nav-tabs.links .nav-link:hover, .nav-tabs.links .nav-link.active {
+    color: var(--primary-color)
+}

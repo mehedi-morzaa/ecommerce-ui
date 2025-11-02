@@ -9,3 +9,11 @@
 .btn-icon:focus {
   box-shadow: none;
 }
+
+.btn{
+  background-color: var(--primary-color);
+}
+
+.menu-aside .menu-item.active .menu-link {
+    background-color: var(--primary-color-light)
+}
