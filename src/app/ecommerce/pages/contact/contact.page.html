@@ -9,10 +9,11 @@
   </div>
   <div class="page-content">
     <div class="container pt-50">
+
+      <!-- branch -->
       <div class="row">
-        <div class="col-xl-10 col-lg-12 m-auto">
+        <div class="col-xl-10 col-lg-12">
           <section class="mb-50">
-            <!-- branch -->
             <div class="row mb-60">
               @for (item of branches(); track $index) {
               <div class="col-md-4 mb-4 mb-md-0">
@@ -28,162 +29,186 @@
               }
             </div>
 
-            <!-- contact -->
-            <div class="row align-items-center">
-              <div class="col-xl-8">
-                <div class="contact-from-area padding-20-row-col">
-                  <h5 class="text-brand mb-10">Contact form</h5>
-                  <h2 class="mb-10">Drop Us a Line</h2>
-                  <p class="text-muted mb-30 font-sm">
-                    Your email address will not be published. Required fields are marked *
-                  </p>
-                  <form
-                    class="contact-form-style mt-30"
-                    [formGroup]="contactForm"
-                    (ngSubmit)="postContact()"
-                    novalidate
-                  >
-                    <div class="row">
-                      <div class="col-lg-6 col-md-6">
-                        <div class="input-style mb-20">
-                          <input
-                            name="name"
-                            placeholder="FullName"
-                            type="text"
-                            formControlName="fullName"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-lg-6 col-md-6">
-                        <div class="input-style mb-20">
-                          <input
-                            name="email"
-                            placeholder="Your Email"
-                            type="email"
-                            formControlName="email"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-lg-6 col-md-6">
-                        <div class="input-style mb-20">
-                          <input
-                            name="telephone"
-                            placeholder="Your Phone"
-                            type="tel"
-                            formControlName="phone"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-lg-6 col-md-6">
-                        <div class="input-style mb-20">
-                          <select formControlName="contactSubjectId">
-                            <option disabled selected [value]="0">Select Subject</option>
-                            @for (item of contactSubjects(); track $index) {
-                            <option [value]="item.id">{{ item.subject }}</option>
-                            }
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-lg-12 col-md-12">
-                        <div class="textarea-style mb-30">
-                          <textarea
-                            name="message"
-                            placeholder="Message"
-                            formControlName="message"
-                          ></textarea>
-                        </div>
-                        <button class="submit submit-auto-width" type="submit">Send message</button>
-                      </div>
-                    </div>
-                  </form>
-                  <p class="form-messege"></p>
-                </div>
-              </div>
-
-              <!-- faq -->
-              <div class="col-lg-4 d-lg-block d-none">
-                <div class="accordion" id="accordionPanelsStayOpenExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button
-                        class="accordion-button"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseOne"
-                        aria-expanded="true"
-                        aria-controls="panelsStayOpen-collapseOne"
-                      >
-                        FAQ1
-                      </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-                      <div class="accordion-body">
-                        <strong>This is the first item’s accordion body.</strong> It is shown by
-                        default, until the collapse plugin adds the appropriate classes that we use
-                        to style each element. These classes control the overall appearance, as well
-                        as the showing and hiding via CSS transitions. You can modify any of this
-                        with custom CSS or overriding our default variables. It’s also worth noting
-                        that just about any HTML can go within the <code>.accordion-body</code>,
-                        though the transition does limit overflow.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseTwo"
-                        aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseTwo"
-                      >
-                        FAQ2
-                      </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        <strong>This is the second item’s accordion body.</strong> It is hidden by
-                        default, until the collapse plugin adds the appropriate classes that we use
-                        to style each element. These classes control the overall appearance, as well
-                        as the showing and hiding via CSS transitions. You can modify any of this
-                        with custom CSS or overriding our default variables. It’s also worth noting
-                        that just about any HTML can go within the <code>.accordion-body</code>,
-                        though the transition does limit overflow.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseThree"
-                        aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseThree"
-                      >
-                        FAQ3
-                      </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-                      <div class="accordion-body">
-                        <strong>This is the third item’s accordion body.</strong> It is hidden by
-                        default, until the collapse plugin adds the appropriate classes that we use
-                        to style each element. These classes control the overall appearance, as well
-                        as the showing and hiding via CSS transitions. You can modify any of this
-                        with custom CSS or overriding our default variables. It’s also worth noting
-                        that just about any HTML can go within the <code>.accordion-body</code>,
-                        though the transition does limit overflow.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </section>
         </div>
       </div>
+
+      <!-- contact -->
+      <div class="row align-items-center">
+        <div class="col-xl-7">
+          <div class="contact-from-area padding-20-row-col">
+            <h5 class="text-brand mb-10">Contact form</h5>
+            <h2 class="mb-10">Drop Us a Line</h2>
+            <p class="text-muted mb-30 font-sm">
+              Your email address will not be published. Required fields are marked *
+            </p>
+            <form
+              class="contact-form-style mt-30"
+              [formGroup]="contactForm"
+              (ngSubmit)="postContact()"
+              novalidate
+            >
+              <div class="row">
+                <div class="col-lg-6 col-md-6">
+                  <div class="input-style mb-20">
+                    <input
+                      name="name"
+                      placeholder="FullName"
+                      type="text"
+                      formControlName="fullName"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="input-style mb-20">
+                    <input
+                      name="email"
+                      placeholder="Your Email"
+                      type="email"
+                      formControlName="email"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="input-style mb-20">
+                    <input
+                      name="telephone"
+                      placeholder="Your Phone"
+                      type="tel"
+                      formControlName="phone"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <div class="input-style mb-20">
+                    <select formControlName="contactSubjectId">
+                      <option disabled selected [value]="0">Select Subject</option>
+                      @for (item of contactSubjects(); track $index) {
+                      <option [value]="item.id">{{ item.subject }}</option>
+                      }
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <div class="textarea-style mb-30">
+                    <textarea
+                      name="message"
+                      placeholder="Message"
+                      formControlName="message"
+                    ></textarea>
+                  </div>
+                  <button class="submit submit-auto-width" type="submit">Send message</button>
+                </div>
+              </div>
+            </form>
+            <p class="form-messege"></p>
+          </div>
+        </div>
+
+        <!-- faq -->
+        <div class="col-lg-5 d-lg-block d-none">
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            @for (item of FAQContent(); track $index) {
+              <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  [class.collapsed]="!$first"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  [attr.data-bs-target]="'#panelsStayOpen-'+item.id"
+                  aria-expanded="true"
+                  [attr.aria-controls]="'#panelsStayOpen-'+item.id"
+                >
+                  {{item.title}}
+                </button>
+              </h2>
+              <div [id]="'panelsStayOpen-'+item.id" class="accordion-collapse collapse" [class.show]="$first">
+                <div class="accordion-body">
+                  <strong>{{item.smallDetails}}</strong>
+                </div>
+              </div>
+            </div>
+            }
+            <!-- <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseOne"
+                  aria-expanded="true"
+                  aria-controls="panelsStayOpen-collapseOne"
+                >
+                  FAQ1
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                  <strong>This is the first item’s accordion body.</strong> It is shown by
+                  default, until the collapse plugin adds the appropriate classes that we use
+                  to style each element. These classes control the overall appearance, as well
+                  as the showing and hiding via CSS transitions. You can modify any of this
+                  with custom CSS or overriding our default variables. It’s also worth noting
+                  that just about any HTML can go within the <code>.accordion-body</code>,
+                  though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseTwo"
+                >
+                  FAQ2
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <strong>This is the second item’s accordion body.</strong> It is hidden by
+                  default, until the collapse plugin adds the appropriate classes that we use
+                  to style each element. These classes control the overall appearance, as well
+                  as the showing and hiding via CSS transitions. You can modify any of this
+                  with custom CSS or overriding our default variables. It’s also worth noting
+                  that just about any HTML can go within the <code>.accordion-body</code>,
+                  though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseThree"
+                  aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseThree"
+                >
+                  FAQ3
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <strong>This is the third item’s accordion body.</strong> It is hidden by
+                  default, until the collapse plugin adds the appropriate classes that we use
+                  to style each element. These classes control the overall appearance, as well
+                  as the showing and hiding via CSS transitions. You can modify any of this
+                  with custom CSS or overriding our default variables. It’s also worth noting
+                  that just about any HTML can go within the <code>.accordion-body</code>,
+                  though the transition does limit overflow.
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </main>

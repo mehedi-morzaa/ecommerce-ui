@@ -1,9 +1,11 @@
+import { HtmlService } from './../../../services/html.service';
 import { Component, OnInit, signal } from '@angular/core';
 import { BranchService } from '../../../services/branch.service';
 import { ContactService } from '../../../services/contact.service';
 import { Branch } from '../../../models/branch.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ContactSubject } from '../../../models/contact-subject.model';
+import { HtmlContent } from '../../../models/html-content.model';
 
 @Component({
   selector: 'page-contact',
@@ -17,6 +19,7 @@ export class ContactPage implements OnInit {
   constructor(
     private branchService: BranchService,
     private contactService: ContactService,
+    private htmlService:HtmlService,
     private fb: FormBuilder
   ) {}
 
@@ -24,7 +27,8 @@ export class ContactPage implements OnInit {
    🧩 PROPERTIES (State / Data)
 ======================================================== */
   branches = signal<Branch[] | null>(null);
-  contactSubjects=signal<ContactSubject[]|null>(null)
+  contactSubjects=signal<ContactSubject[]|null>(null);
+  FAQContent = signal<HtmlContent[] | null>(null);
   contactForm!: FormGroup;
 
   /* ========================================================
@@ -49,6 +53,20 @@ export class ContactPage implements OnInit {
       next: (res) => {
         if (res.success) {
           this.contactSubjects.set(res.data);
+          console.log(res.data);
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  LoadFAQ() {
+    this.htmlService.getListofContent(2,3,1).subscribe({
+      next: (res) => {
+        if (res.success) {
+          this.FAQContent.set(res.data);
           console.log(res.data);
         }
       },
@@ -89,5 +107,6 @@ export class ContactPage implements OnInit {
 
     this.LoadBranches();
     this.LoadContactSubjects();
+    this.LoadFAQ();
   }
 }
