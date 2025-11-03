@@ -104,92 +104,7 @@ body.offcanvas-active {
   visibility: visible;
 }
 
-.menu-aside {
-  list-style: none;
-  margin: 1rem;
-  padding: 0;
-}
-.menu-aside a {
-  display: block;
-  text-decoration: none;
-  font-family: "Quicksand", sans-serif;
-  font-weight: 600;
-}
-.menu-aside .menu-item {
-  margin-bottom: 5px;
-}
-.menu-aside .menu-item .icon {
-  color: #adb5bd;
-  margin-right: 10px;
-  font-size: 24px;
-}
-.menu-aside .menu-item.active .icon {
-  color: #3BB77E;
-}
-.menu-aside .menu-item.active .menu-link {
-  background-color: rgba(59, 183, 126, 0.2);
-}
-.menu-aside .menu-item.active .submenu a.active {
-  color: #3BB77E !important;
-}
-.menu-aside .menu-link {
-  padding: 10px;
-  font-weight: 800;
-  font-size: 13px;
-  color: #292f46;
-  border-radius: 0.5rem;
-  position: relative;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-}
-.menu-aside .menu-link:hover {
-  transition: 0.2s linear;
-  background-color: #e9ecef;
-}
-.menu-aside .submenu {
-  margin-left: 44px;
-  display: none;
-  margin-top: 10px;
-}
-.menu-aside .submenu a {
-  color: #6c757d;
-  padding: 5px 0 5px 15px;
-  transition-duration: 0.3s;
-  position: relative;
-  margin-left: 5px;
-}
-.menu-aside .submenu a:hover {
-  color: #000;
-  transition-duration: 0.3s;
-}
-.menu-aside .submenu a:before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  position: absolute;
-  background-color: #adb5bd;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 50%;
-}
-.menu-aside .menu-item.active .submenu {
-  display: block;
-}
-.menu-aside .menu-item.has-submenu > .menu-link:after {
-  display: inline-block;
-  position: absolute;
-  right: 10px;
-  top: 15px;
-  margin-top: 0.6em;
-  vertical-align: middle;
-  content: "";
-  border-top: 5px solid #adb5bd;
-  border-right: 5px solid transparent;
-  border-bottom: 0;
-  border-left: 5px solid transparent;
-}
+
 
 .main-wrap {
   margin-left: 300px;
@@ -211,37 +126,7 @@ body.offcanvas-active {
   right: 0 !important;
 }
 
-.navbar-aside {
-  max-width: 300px;
-  display: block;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  overflow-y: auto;
-  background-color: #fff;
-  box-shadow: none;
-  z-index: 10;
-  border-right: 1px solid #dee2e6;
-}
-.navbar-aside .aside-top {
-  padding: 12px 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #eee;
-  min-height: 72px;
-}
-.navbar-aside .aside-top .brand-wrap {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  display: inline-block;
-}
-.navbar-aside .aside-top .logo {
-  max-width: 120px;
-  margin-top: 5px;
-  min-width: 120px;
-}
+
 
 .main-header {
   padding-left: 3%;
@@ -318,52 +203,8 @@ body.offcanvas-active {
 }
 
 
-body.aside-mini .main-wrap {
-  margin-left: 80px;
-}
-body.aside-mini .navbar-aside {
-  max-width: 80px;
-  overflow: visible;
-  min-height: 100%;
-  bottom: auto;
-  overflow: unset !important;
-}
-body.aside-mini .navbar-aside .aside-top {
-  text-align: center;
-}
-body.aside-mini .navbar-aside .aside-top > div {
-  flex-grow: 1;
-}
-body.aside-mini .navbar-aside .brand-wrap,
-body.aside-mini .navbar-aside .logo {
-  display: none;
-}
-body.aside-mini .menu-aside .menu-link {
-  text-align: center;
-}
-body.aside-mini .menu-aside .menu-link .text {
-  display: none;
-}
-body.aside-mini .menu-aside .menu-link .icon {
-  margin-right: 0;
-}
-body.aside-mini .menu-aside .submenu {
-  border: 1px solid #eee;
-  border-radius: 0 10px 10px 0;
-  background-color: white;
-  margin-left: 16px;
-  padding: 10px;
-  position: absolute;
-  left: 100%;
-  top: 5px;
-  min-width: 180px;
-}
-body.aside-mini .menu-aside .menu-item {
-  position: relative;
-}
-body.aside-mini .menu-aside .menu-item.has-submenu .menu-link:after {
-  display: none;
-}
+
+
 
 footer.main-footer {
   bottom: 0;
@@ -10355,14 +10196,6 @@ footer .hotline img {
   .tab-style3 .nav-item {
     margin-bottom: 15px;
   }
-
-    /* tablet devices */
-  .main-wrap {
-    margin-left: 220px;
-  }
-  .navbar-aside {
-    max-width: 220px;
-  }
 }
 @media only screen and (max-width: 1024px) {
   .header-style-1 .main-categori-wrap {
@@ -10483,38 +10316,6 @@ footer .hotline img {
   }
   .btn-mobile {
     display: inline-block !important;
-  }
-  .navbar-aside {
-    z-index: 1900;
-    transform: translateX(-100%);
-    overflow-x: hidden;
-    transition: visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
-  }
-  .navbar-aside .aside-top .logo {
-    height: 40px;
-  }
-  .navbar-aside.show {
-    visibility: visible;
-    transform: translateX(0);
-  }
-  .mobile-offcanvas {
-    visibility: hidden;
-    transform: translateX(-100%);
-    border-radius: 0;
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    z-index: 1200;
-    width: 80%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    transition: visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
-  }
-  .mobile-offcanvas.show {
-    visibility: visible;
-    transform: translateX(0);
   }
   .main-header {
     padding-left: 0.5rem;

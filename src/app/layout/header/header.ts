@@ -9,4 +9,16 @@ import { Categories } from "../../ecommerce/pages/categories/categories";
 })
 export class Header {
 
+
+  toggleMobileSidebar(triggerSelector: string): void {
+    const target = document.querySelector(triggerSelector);
+    if (target) {
+      target.classList.toggle('show');
+      document.body.classList.toggle('offcanvas-active');
+
+      const overlay = document.querySelector('.screen-overlay');
+      if (overlay) overlay.classList.toggle('show');
+    }
+  }
+
 }
