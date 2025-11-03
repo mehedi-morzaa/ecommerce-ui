@@ -7,6 +7,7 @@ import { HtmlContent } from '../../../models/html-content.model';
   imports: [],
   templateUrl: './about.page.html',
 })
+
 export class AboutPage implements OnInit {
   /* ========================================================
    🔧 CONSTRUCTOR & DEPENDENCY INJECTION

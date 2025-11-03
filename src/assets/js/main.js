@@ -7,7 +7,7 @@
     });
 
     /*--------------
-     Navbar Aside 
+     Navbar Aside
     ----------------*/
     if (
         ($(".menu-item.has-submenu .menu-link").on("click", function (s) {
@@ -43,12 +43,12 @@
         $(".select-nice").length && $(".select-nice").select2(),
         $("#offcanvas_aside").length)
     ) {
-        const e = document.querySelector("#offcanvas_aside");
-        new PerfectScrollbar(e);
+        // const e = document.querySelector("#offcanvas_aside");
+        // new PerfectScrollbar(e);
     }
 
     /*--------------
-     End Navbar Aside 
+     End Navbar Aside
     ----------------*/
 
     /*-----------------

@@ -12,6 +12,7 @@ import { HtmlContent } from '../../../models/html-content.model';
   imports: [ReactiveFormsModule],
   templateUrl: './contact.page.html',
 })
+
 export class ContactPage implements OnInit {
   /* ========================================================
      🔧 CONSTRUCTOR & DEPENDENCY INJECTION
