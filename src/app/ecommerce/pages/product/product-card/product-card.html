@@ -1,0 +1,42 @@
+<div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" [attr.data-wow-delay]="'.3s'">
+  <div class="product-img-action-wrap">
+    <div class="product-img product-img-zoom">
+      <a [routerLink]="['/shop-product-right', product.id]">
+        <img class="default-img" [src]="'assets/imgs/shop/product-8-1.jpg'" alt="" />
+        <img class="hover-img" [src]="product.brandName" alt="" />
+      </a>
+    </div>
+    <div class="product-action-1">
+      <a aria-label="Add To Wishlist" class="action-btn" routerLink="/shop-wishlist"><i class="fi-rs-heart"></i></a>
+      <a aria-label="Compare" class="action-btn" routerLink="/shop-compare"><i class="fi-rs-shuffle"></i></a>
+      <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
+    </div>
+    <div class="product-badges product-badges-position product-badges-mrg">
+        <span class="sale">Sale</span>
+    </div>
+  </div>
+  <div class="product-content-wrap">
+    <div class="product-category">
+      <a routerLink="/shop-grid-right">{{ product.productCategoryName }}</a>
+    </div>
+    <h2><a [routerLink]="['/shop-product-right', product.id]">{{ product.productVariantName }}</a></h2>
+    <div class="product-rate-cover">
+      <div class="product-rate d-inline-block">
+        <div class="product-rating" [style.width.%]="4 * 20"></div>
+      </div>
+      <span class="font-small ml-5 text-muted"> (4.0)</span>
+    </div>
+    <div>
+      <span class="font-small text-muted">By <a routerLink="/vendor-details-1">{{ 'Mr.X' }}</a></span>
+    </div>
+    <div class="product-card-bottom">
+      <div class="product-price">
+        <span>${{ product.basePrice }}</span>
+        <span class="old-price" *ngIf="product.basePrice">\${{ product.basePrice }}</span>
+      </div>
+      <div class="add-cart">
+        <a class="add" routerLink="/shop-cart"><i class="fi-rs-shopping-cart mr-5"></i>Add</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,15 @@
     "pathRewrite": {
       "^/cms-api": ""
     }
+  },
+    "/ecommerce-gateway-api": {
+    "target": "https://localhost:7204/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/ecommerce-gateway-api": ""
+    }
   }
   ,
     "/inventory-image": {

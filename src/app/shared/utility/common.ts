@@ -19,12 +19,32 @@ export class Common {
         return environment.cmsApiUrl;
     }
 
-    public static getImageUrl(path: string, source: MediaSourceEnum = MediaSourceEnum.Inventory): string {
-    const prefix = source === MediaSourceEnum.Inventory
-        ? Common.InventoryImagePrefix
-        : Common.CmsImagePrefix;
+    public static get EcommerceGatewayBaseApiUrl(): string {
+        return environment.ecommerceGatewayApiUrl;
+    }
 
-    return prefix + path;
+    public static getImageUrl(path: string, source: MediaSourceEnum = MediaSourceEnum.Inventory): string {
+        let prefix: string;
+
+        switch (source) {
+            case MediaSourceEnum.Inventory:
+            prefix = Common.InventoryImagePrefix;
+            break;
+
+            case MediaSourceEnum.Cms:
+            prefix = Common.CmsImagePrefix;
+            break;
+
+            case MediaSourceEnum.EcommerceGateway:
+            prefix = Common.EcommerceGatewayBaseApiUrl;
+            break;
+
+            default:
+            prefix = Common.InventoryImagePrefix;
+            break;
+        }
+
+        return prefix + path;
     }
 }
 
