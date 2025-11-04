@@ -13,14 +13,14 @@ export class HtmlService {
   constructor(private masterService: MasterService) {}
 
   getPageInfo(masterId: number, languageId: number = 2) : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/ListofContent?clientId=${Common.getClientId()}&masterId=${masterId}&languageId=${languageId}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/ListofContent?clientId=${Common.getClientId()}&masterId=${masterId}&languageId=${languageId}`);
   }
 
   getListofContent(masterId: number, cTypeId: number, languageId: number = 2) : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/ListofContent?masterId=${masterId}&cTypeId=${cTypeId}&languageId=${languageId}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/ListofContent?masterId=${masterId}&cTypeId=${cTypeId}&languageId=${languageId}`);
   }
 
   getSingleContent(masterId: number, cTypeId: number, languageId: number = 2) : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/SingleContent?masterId=${masterId}&cTypeId=${cTypeId}&languageId=${languageId}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/SingleContent?masterId=${masterId}&cTypeId=${cTypeId}&languageId=${languageId}`);
   }
 }

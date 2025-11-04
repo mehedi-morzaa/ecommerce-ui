@@ -1,15 +1,40 @@
 {
-  "/api": {
+  "/inventory-api": {
+    "target": "https://localhost:7204",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/inventory-api": ""
+    }
+  },
+  "/cms-api": {
     "target": "https://localhost:7122",
     "secure": false,
     "changeOrigin": true,
-    "logLevel": "debug"
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/cms-api": ""
+    }
+  }
+  ,
+    "/inventory-image": {
+    "target": "https://localhost:7280",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/inventory-image": ""
+    }
   },
-  "/upload": {
+    "/cms-image": {
     "target": "https://localhost:7126",
     "secure": false,
     "changeOrigin": true,
-    "logLevel": "debug"
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/cms-image": ""
+    }
   }
 
 }

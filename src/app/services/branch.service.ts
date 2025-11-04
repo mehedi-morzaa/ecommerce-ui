@@ -13,14 +13,14 @@ export class BranchService {
   constructor(private masterService: MasterService) {}
 
   getOffices() : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/GetOffices?clientId=${Common.getClientId()}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/GetOffices?clientId=${Common.getClientId()}`);
   }
 
   getOpeningHours(branchId:number) : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/OpeningHours?branchId=${branchId}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/OpeningHours?branchId=${branchId}`);
   }
 
   getTeam(deptId : number) : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/GetTeam?clientId=${Common.getClientId()}&deptId=${deptId}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/GetTeam?clientId=${Common.getClientId()}&deptId=${deptId}`);
   }
 }

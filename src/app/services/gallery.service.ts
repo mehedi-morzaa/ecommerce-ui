@@ -13,6 +13,6 @@ export class GalleryService {
   constructor(private masterService: MasterService) {}
 
   getGallery(galleryId : number) : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/GetGallery?clientId=${Common.getClientId()}&galleryId=${galleryId}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/GetGallery?clientId=${Common.getClientId()}&galleryId=${galleryId}`);
   }
 }

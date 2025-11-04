@@ -10,22 +10,68 @@
         </div>
 
        <nav>
-            <ul class="menu-aside">
-                <ng-container *ngFor="let cat of categoryTree">
+            <ul class="menu-aside" *ngIf="categoryTree().length > 0">
+                <ng-container *ngFor="let cat of categoryTree()">
                     <li class="menu-item" [class.has-submenu]="cat.children && cat.children.length > 0">
                         <a class="menu-link" href="#">
-                            <i class="icon material-icons md-folder"></i>
+                            <ng-container *ngIf="cat.iconImage; else defaultIcon">
+                                <img
+                                    [src]="getImageSrc(cat.iconImage)"
+                                    [alt]="cat.imageAltText || cat.categoryName"
+                                    class="icon-img"
+                                />
+                            </ng-container>
+
+                            <ng-template #defaultIcon>
+                                <i class="icon material-icons md-folder"></i>
+                            </ng-template>
                             <span class="text">{{ cat.categoryName }}</span>
                         </a>
                         <div class="submenu" *ngIf="cat.children && cat.children.length > 0">
                             <ng-container *ngFor="let sub of cat.children">
                                 <div *ngIf="sub.children && sub.children.length > 0" class="submenu-group has-submenu">
-                                    <a href="#" class="submenu-toggle">{{ sub.categoryName }}</a>
+                                    <a href="#" class="submenu-toggle">
+                                        <ng-container *ngIf="sub.iconImage; else subDefaultIcon">
+                                            <img
+                                                [src]="getImageSrc(sub.iconImage)"
+                                                [alt]="sub.imageAltText || sub.categoryName"
+                                                class="icon-img"
+                                            />
+                                        </ng-container>
+                                        <ng-template #subDefaultIcon>
+                                            <i class="icon material-icons md-folder"></i>
+                                        </ng-template>
+                                        <span class="text">{{ sub.categoryName }}</span>
+                                    </a>
                                     <div class="submenu-nested">
-                                    <a *ngFor="let nested of sub.children" href="#">{{ nested.categoryName }}</a>
+                                    <a *ngFor="let nested of sub.children" href="#">
+                                        <ng-container *ngIf="nested.iconImage; else nestedDefaultIcon">
+                                            <img
+                                            [src]="getImageSrc(nested.iconImage)"
+                                            [alt]="nested.imageAltText || nested.categoryName"
+                                            class="icon-img"
+                                            />
+                                        </ng-container>
+                                        <ng-template #nestedDefaultIcon>
+                                            <i class="icon material-icons md-folder"></i>
+                                        </ng-template>
+                                        <span class="text">{{ nested.categoryName }}</span>
+                                    </a>
                                     </div>
                                 </div>
-                                <a *ngIf="!sub.children?.length" href="#">{{ sub.categoryName }}</a>
+                                <a *ngIf="!sub.children?.length" href="#">
+                                    <ng-container *ngIf="sub.iconImage; else subDefaultIcon2">
+                                        <img
+                                            [src]="getImageSrc(sub.iconImage)"
+                                            [alt]="sub.imageAltText || sub.categoryName"
+                                            class="icon-img"
+                                        />
+                                    </ng-container>
+                                    <ng-template #subDefaultIcon2>
+                                        <i class="icon material-icons md-folder"></i>
+                                    </ng-template>
+                                        <span class="text">{{ sub.categoryName }}</span>
+                                </a>
                             </ng-container>
                         </div>
                     </li>

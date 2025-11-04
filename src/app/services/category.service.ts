@@ -7,13 +7,13 @@ import { Common } from '../shared/utility/common';
 @Injectable({
   providedIn: 'root'
 })
-export class ClientService {
-  private readonly endpoint = 'Misc';
+export class CategoryService {  
+  
+  private readonly endpoint = 'inventory/product/categories';
 
   constructor(private masterService: MasterService) {}
 
-  getClient() : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/ClientInfo?clientId=${Common.getClientId()}`);
+  getAll() : Observable<ApiResponse> {
+    return this.masterService.get<ApiResponse>(Common.InventoryBaseApiUrl,this.endpoint);
   }
-
 }

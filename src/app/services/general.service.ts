@@ -13,14 +13,14 @@ export class GeneralService {
   constructor(private masterService: MasterService) {}
 
   getAllServices(categoryId : number) : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/GetAllServices?clientId=${Common.getClientId()}&categoryId=${categoryId}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/GetAllServices?clientId=${Common.getClientId()}&categoryId=${categoryId}`);
   }
 
   getContents(serviceMasterId : number, languageId : number = 2) : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}?serviceMasterId=${serviceMasterId}&languageId=${languageId}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}?serviceMasterId=${serviceMasterId}&languageId=${languageId}`);
   }
 
   getAllBusiness(categoryId : number) : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/GetAllBusiness?clientId=${Common.getClientId()}&categoryId=${categoryId}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/GetAllBusiness?clientId=${Common.getClientId()}&categoryId=${categoryId}`);
   }
 }
