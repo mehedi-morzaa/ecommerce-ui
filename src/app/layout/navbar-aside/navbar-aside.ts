@@ -2,6 +2,8 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2, PLATFORM_ID, inject, signal, computed } from '@angular/core';
 import { Category } from '../../models/category.model';
 import { CategoryService } from '../../services/category.service';
+import { Common } from '../../shared/utility/common';
+import { MediaSourceEnum } from '../../shared/enums/media-source-enum';
 
 @Component({
   selector: 'app-navbar-aside',
@@ -179,4 +181,7 @@ export class NavbarAside implements OnInit, AfterViewInit{
     }
   }
 
+  getImageSrc(path : string){
+    return Common.getImageUrl(path, MediaSourceEnum.Inventory);
+  }
 }

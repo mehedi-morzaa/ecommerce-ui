@@ -13,7 +13,7 @@ export class ClientService {
   constructor(private masterService: MasterService) {}
 
   getClient() : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/ClientInfo?clientId=${Common.getClientId()}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/ClientInfo?clientId=${Common.getClientId()}`);
   }
 
 }

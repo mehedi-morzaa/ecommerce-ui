@@ -14,9 +14,9 @@
                 <ng-container *ngFor="let cat of categoryTree()">
                     <li class="menu-item" [class.has-submenu]="cat.children && cat.children.length > 0">
                         <a class="menu-link" href="#">
-                            <ng-container *ngIf="true; else defaultIcon">
+                            <ng-container *ngIf="cat.iconImage; else defaultIcon">
                                 <img
-                                    [src]="'assets/imgs/vendor/vendor-1.png'"
+                                    [src]="getImageSrc(cat.iconImage)"
                                     [alt]="cat.imageAltText || cat.categoryName"
                                     class="icon-img"
                                 />
@@ -31,9 +31,9 @@
                             <ng-container *ngFor="let sub of cat.children">
                                 <div *ngIf="sub.children && sub.children.length > 0" class="submenu-group has-submenu">
                                     <a href="#" class="submenu-toggle">
-                                        <ng-container *ngIf="true; else subDefaultIcon">
+                                        <ng-container *ngIf="sub.iconImage; else subDefaultIcon">
                                             <img
-                                                [src]="'assets/imgs/vendor/vendor-1.png'"
+                                                [src]="getImageSrc(sub.iconImage)"
                                                 [alt]="sub.imageAltText || sub.categoryName"
                                                 class="icon-img"
                                             />
@@ -45,9 +45,9 @@
                                     </a>
                                     <div class="submenu-nested">
                                     <a *ngFor="let nested of sub.children" href="#">
-                                        <ng-container *ngIf="true; else nestedDefaultIcon">
+                                        <ng-container *ngIf="nested.iconImage; else nestedDefaultIcon">
                                             <img
-                                            [src]="'assets/imgs/vendor/vendor-1.png'"
+                                            [src]="getImageSrc(nested.iconImage)"
                                             [alt]="nested.imageAltText || nested.categoryName"
                                             class="icon-img"
                                             />
@@ -60,9 +60,9 @@
                                     </div>
                                 </div>
                                 <a *ngIf="!sub.children?.length" href="#">
-                                    <ng-container *ngIf="true; else subDefaultIcon2">
+                                    <ng-container *ngIf="sub.iconImage; else subDefaultIcon2">
                                         <img
-                                            [src]="'assets/imgs/vendor/vendor-1.png'"
+                                            [src]="getImageSrc(sub.iconImage)"
                                             [alt]="sub.imageAltText || sub.categoryName"
                                             class="icon-img"
                                         />
@@ -70,7 +70,7 @@
                                     <ng-template #subDefaultIcon2>
                                         <i class="icon material-icons md-folder"></i>
                                     </ng-template>
-                                    <span class="text">{{ sub.categoryName }}</span>
+                                        <span class="text">{{ sub.categoryName }}</span>
                                 </a>
                             </ng-container>
                         </div>

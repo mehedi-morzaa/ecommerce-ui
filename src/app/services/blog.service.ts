@@ -13,10 +13,10 @@ export class BlogService {
   constructor(private masterService: MasterService) {}
 
   getAllBlog() : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/GetAllBlogs?clientId=${Common.getClientId()}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/GetAllBlogs?clientId=${Common.getClientId()}`);
   }
 
   getBlogDetails(masterId : number, languageId : number = 2) : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/GetBlogDetails?masterId=${masterId}&languageId=${languageId}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/GetBlogDetails?masterId=${masterId}&languageId=${languageId}`);
   }
 }

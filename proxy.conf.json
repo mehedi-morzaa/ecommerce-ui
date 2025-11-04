@@ -1,17 +1,4 @@
 {
-  "/api": {
-    "target": "https://localhost:7122",
-    "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug"
-  },
-  "/upload": {
-    "target": "https://localhost:7126",
-    "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug"
-  },
-
   "/inventory-api": {
     "target": "https://localhost:7204",
     "secure": false,
@@ -21,22 +8,32 @@
       "^/inventory-api": ""
     }
   },
-    "/inventory-api/Content": {
-    "target": "https://localhost:7280/",
-    "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug",
-    "pathRewrite": {
-      "^/inventory-api/Content": "/Content"
-    }
-  },
   "/cms-api": {
-    "target": "https://localhost:7126",
+    "target": "https://localhost:7122",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
     "pathRewrite": {
       "^/cms-api": ""
+    }
+  }
+  ,
+    "/inventory-image": {
+    "target": "https://localhost:7280",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/inventory-image": ""
+    }
+  },
+    "/cms-image": {
+    "target": "https://localhost:7126",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/cms-image": ""
     }
   }
 

@@ -13,15 +13,15 @@ export class ContactService {
   constructor(private masterService: MasterService) {}
 
   getContactSubjects(languageId : number = 1) : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/GetContactSubjects?clientId=${Common.getClientId()}&languageId=${languageId}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/GetContactSubjects?clientId=${Common.getClientId()}&languageId=${languageId}`);
   }
 
   saveMessage(data: any) : Observable<ApiResponse> {
     data.clientId=Common.getClientId();
-    return this.masterService.post<ApiResponse>(`${this.endpoint}/SaveMessage`,data);
+    return this.masterService.post<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/SaveMessage`,data);
   }
 
   getTestimonials() : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}?clientId=${Common.getClientId()}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}?clientId=${Common.getClientId()}`);
   }
 }

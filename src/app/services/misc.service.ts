@@ -13,6 +13,6 @@ export class SeoService {
   constructor(private masterService: MasterService) {}
 
   getClientInfo() : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(`${this.endpoint}/ClientInfo?clientId=${Common.getClientId()}`);
+    return this.masterService.get<ApiResponse>(Common.CmsBaseApiUrl,`${this.endpoint}/ClientInfo?clientId=${Common.getClientId()}`);
   }
 }
