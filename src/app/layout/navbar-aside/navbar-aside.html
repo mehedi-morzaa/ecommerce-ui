@@ -25,7 +25,7 @@
                             <ng-template #defaultIcon>
                                 <i class="icon material-icons md-folder"></i>
                             </ng-template>
-                            <span class="text">{{ cat.categoryName }}</span>
+                            <span class="text">{{ cat.categoryName }} <span *ngIf="cat.productCount>0">({{ cat.productCount }})</span></span>
                         </a>
                         <div class="submenu" *ngIf="cat.children && cat.children.length > 0">
                             <ng-container *ngFor="let sub of cat.children">
@@ -41,7 +41,7 @@
                                         <ng-template #subDefaultIcon>
                                             <i class="icon material-icons md-folder"></i>
                                         </ng-template>
-                                        <span class="text">{{ sub.categoryName }}</span>
+                                        <span class="text">{{ sub.categoryName }} <span *ngIf="cat.productCount>0">({{ sub.productCount }})</span></span>
                                     </a>
                                     <div class="submenu-nested">
                                     <a *ngFor="let nested of sub.children" href="#">
@@ -55,7 +55,7 @@
                                         <ng-template #nestedDefaultIcon>
                                             <i class="icon material-icons md-folder"></i>
                                         </ng-template>
-                                        <span class="text">{{ nested.categoryName }}</span>
+                                        <span class="text">{{ nested.categoryName }} <span *ngIf="cat.productCount>0">({{ nested.productCount }})</span></span>
                                     </a>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                                     <ng-template #subDefaultIcon2>
                                         <i class="icon material-icons md-folder"></i>
                                     </ng-template>
-                                        <span class="text">{{ sub.categoryName }}</span>
+                                        <span class="text">{{ sub.categoryName }} <span *ngIf="cat.productCount>0">({{ sub.productCount }})</span></span>
                                 </a>
                             </ng-container>
                         </div>
