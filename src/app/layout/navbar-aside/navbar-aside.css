@@ -189,13 +189,11 @@
 
 
 /* // :host-context instead of body.aside-mini */
-:host-context(.aside-mini) .main-wrap {
-  margin-left: 80px;
-}
 
 :host-context(.aside-mini) .navbar-aside {
   max-width: 80px;
   overflow: visible;
+  position:absolute;
   min-height: 100%;
   bottom: auto;
   overflow: unset;
@@ -245,8 +243,6 @@
 :host-context(.aside-mini) .menu-item.has-submenu .menu-link:after {
   display: none;
 }
-
-
 
 @media only screen and (max-width: 1400px) {
   /* tablet devices */

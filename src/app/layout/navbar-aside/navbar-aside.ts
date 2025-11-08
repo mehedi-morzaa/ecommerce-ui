@@ -4,10 +4,11 @@ import { Category } from '../../models/category.model';
 import { CategoryService } from '../../services/category.service';
 import { Common } from '../../shared/utility/common';
 import { MediaSourceEnum } from '../../shared/enums/media-source-enum';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-navbar-aside',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './navbar-aside.html',
   styleUrl: './navbar-aside.css',
 })

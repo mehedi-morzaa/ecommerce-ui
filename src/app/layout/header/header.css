@@ -1,4 +1,9 @@
 
+.showCartCustom:hover .cart-dropdown-wrap {
+  opacity: 1;
+  visibility: visible;
+  top: calc(100% + 10px);
+}
 /*search form*/
 .searchform {
   position: relative;
