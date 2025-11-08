@@ -13,6 +13,10 @@ export class ProductService {
   constructor(private masterService: MasterService) {}
 
   getAllByCategoryId(id: number = 0) : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(Common.EcommerceGatewayBaseApiUrl,`${this.endpoint}/getall-by-categoryid?categoryId=${id}`);
+    return this.masterService.get<ApiResponse>(Common.EcommerceGatewayBaseApiUrl,`${this.endpoint}/product/getall-by-categoryid?categoryId=${id}`);
+  }
+
+  getAllByBrandId(id: number = 0) : Observable<ApiResponse> {
+    return this.masterService.get<ApiResponse>(Common.EcommerceGatewayBaseApiUrl,`${this.endpoint}/product/getall-by-brandid?brandId=${id}`);
   }
 }

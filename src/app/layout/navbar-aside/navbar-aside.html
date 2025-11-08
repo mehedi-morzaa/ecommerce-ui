@@ -13,7 +13,10 @@
             <ul class="menu-aside" *ngIf="categoryTree().length > 0">
                 <ng-container *ngFor="let cat of categoryTree()">
                     <li class="menu-item" [class.has-submenu]="cat.children && cat.children.length > 0">
-                        <a class="menu-link" href="#">
+                        <a 
+                            class="menu-link" 
+                            [routerLink]="!cat.children || cat.children.length == 0 ? ['/shop/category',cat.id] : null"
+                        >
                             <ng-container *ngIf="cat.iconImage; else defaultIcon">
                                 <img
                                     [src]="getImageSrc(cat.iconImage)"
@@ -30,7 +33,10 @@
                         <div class="submenu" *ngIf="cat.children && cat.children.length > 0">
                             <ng-container *ngFor="let sub of cat.children">
                                 <div *ngIf="sub.children && sub.children.length > 0" class="submenu-group has-submenu">
-                                    <a href="#" class="submenu-toggle">
+                                    <a 
+                                        [routerLink]="['/shop/category',sub.id]" 
+                                        class="submenu-toggle"
+                                    >
                                         <ng-container *ngIf="sub.iconImage; else subDefaultIcon">
                                             <img
                                                 [src]="getImageSrc(sub.iconImage)"
@@ -44,7 +50,10 @@
                                         <span class="text">{{ sub.categoryName }} <span *ngIf="cat.productCount>0">({{ sub.productCount }})</span></span>
                                     </a>
                                     <div class="submenu-nested">
-                                    <a *ngFor="let nested of sub.children" href="#">
+                                    <a 
+                                        *ngFor="let nested of sub.children" 
+                                        [routerLink]="['/shop/category',nested.id]" 
+                                    >
                                         <ng-container *ngIf="nested.iconImage; else nestedDefaultIcon">
                                             <img
                                             [src]="getImageSrc(nested.iconImage)"
@@ -59,7 +68,10 @@
                                     </a>
                                     </div>
                                 </div>
-                                <a *ngIf="!sub.children?.length" href="#">
+                                <a 
+                                    *ngIf="!sub.children?.length" 
+                                    [routerLink]="['/shop/category',sub.id]" 
+                                >
                                     <ng-container *ngIf="sub.iconImage; else subDefaultIcon2">
                                         <img
                                             [src]="getImageSrc(sub.iconImage)"
