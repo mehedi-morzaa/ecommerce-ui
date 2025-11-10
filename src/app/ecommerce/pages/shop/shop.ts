@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, effect, Inject, inject, PLATFORM_ID, signal } from '@angular/core';
+import { AfterViewInit, Component, computed, effect, Inject, inject, PLATFORM_ID, signal } from '@angular/core';
 import { ProductList } from "../product/product-list/product-list";
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../../services/product.service';
@@ -25,6 +25,13 @@ declare const window: any;
 })
 export class Shop implements AfterViewInit {
 
+sortOptions = [
+  { label: 'Featured', value: 'featured' },
+  { label: 'Price: Low to High', value: 'priceAsc' },
+  { label: 'Price: High to Low', value: 'priceDesc' }
+];
+
+  selectedSort = signal('featured');
   categoryList =signal<Category[]>([]);
   brandList =signal<BrandVM[]>([]);
   viewMode = signal<'category' | 'brand' | 'none'>('none');
@@ -97,4 +104,33 @@ export class Shop implements AfterViewInit {
     }, 1000);
     }
   }
+
+
+  // for sorting
+  getSelectedSortLabel(): string {
+    const selected = this.sortOptions.find(opt => opt.value === this.selectedSort());
+    return selected?.label ?? 'Sort';
+  }
+
+  onSortChange(event: Event, value: string): void {
+    event.preventDefault();
+    this.selectedSort.set(value);
+  }
+
+  sortedProductList = computed(() => {
+
+    const sort = this.selectedSort();
+    const products = [...this.productList()]; // clone to avoid mutation
+
+    switch (sort) {
+      case 'priceAsc':
+        return products.sort((a, b) => a.basePrice - b.basePrice);
+      case 'priceDesc':
+        return products.sort((a, b) => b.basePrice - a.basePrice);
+      default:
+        return products; // featured or default
+    }
+});
+
+
 }

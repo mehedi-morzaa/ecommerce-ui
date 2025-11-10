@@ -4,9 +4,9 @@
                 <div class="col-lg-4-5">
                     <div class="shop-product-fillter">
                         <div class="totall-product">
-                            <p>We found <strong class="text-brand">{{productList().length}}</strong> items for you!</p>
+                            <p>We found <strong class="text-brand">{{sortedProductList().length}}</strong> items for you!</p>
                         </div>
-                        <div class="sort-by-product-area">
+                        <!-- <div class="sort-by-product-area">
                             <div class="sort-by-cover">
                                 <div class="sort-by-product-wrap">
                                     <div class="sort-by">
@@ -26,10 +26,38 @@
                                     </ul>
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="sort-by-product-area">
+                            <div class="sort-by-cover">
+                                <div class="sort-by-product-wrap">
+                                <div class="sort-by">
+                                    <span><i class="fi-rs-apps-sort"></i>Sort by:</span>
+                                </div>
+                                <div class="sort-by-dropdown-wrap">
+                                    <span>
+                                    {{getSelectedSortLabel()}}
+                                    <i class="fi-rs-angle-small-down"></i>
+                                    </span>
+                                </div>
+                                </div>
+                                <div class="sort-by-dropdown">
+                                <ul>
+                                    <li
+                                    *ngFor="let option of sortOptions"
+                                    
+                                    >
+                                    <a [class.active]="selectedSort() === option.value" (click)="onSortChange($event, option.value)">
+                                        {{ option.label }}
+                                    </a>
+                                    </li>
+                                </ul>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
-                    <app-product-list [products]="productList()"></app-product-list>
+                    <app-product-list [products]="sortedProductList()"></app-product-list>
                 </div>
                 <div class="col-lg-1-5 primary-sidebar sticky-sidebar">
                     <!-- Fillter By Price -->
