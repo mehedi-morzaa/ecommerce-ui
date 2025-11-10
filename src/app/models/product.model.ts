@@ -1,11 +1,5 @@
-export interface BaseVM {
-  id: number;
-  createDate: string | null;
-  createdBy: number;
-  editDate: string | null;
-  editedBy: number | null;
-  entityStatusText: string;
-}
+import { BaseVM } from "./base.model";
+
 
 export interface ProductVM extends BaseVM {
   // master info
