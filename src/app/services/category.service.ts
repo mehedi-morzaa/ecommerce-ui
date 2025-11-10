@@ -9,11 +9,14 @@ import { Common } from '../shared/utility/common';
 })
 export class CategoryService {  
   
-  private readonly endpoint = 'inventory/product/categories';
+  private readonly endpoint = 'inventory/product';
 
   constructor(private masterService: MasterService) {}
 
   getAll() : Observable<ApiResponse> {
-    return this.masterService.get<ApiResponse>(Common.InventoryBaseApiUrl,this.endpoint);
+    return this.masterService.get<ApiResponse>(Common.EcommerceGatewayBaseApiUrl,`${this.endpoint}/categories`);
+  }
+  getAllByBrandId(brandId: number) : Observable<ApiResponse> {
+    return this.masterService.get<ApiResponse>(Common.EcommerceGatewayBaseApiUrl,`${this.endpoint}/categories/${brandId}`);
   }
 }

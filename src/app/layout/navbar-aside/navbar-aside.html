@@ -1,7 +1,7 @@
 
     <aside class="navbar-aside" id="offcanvas_aside">
         <div class="aside-top">
-            <a href="index.html" class="brand-wrap">
+            <a [routerLink]="'/'" class="brand-wrap">
                 <img src="assets/imgs/morzaa/Transparent-logo.png" class="logo" alt="morzaa logo" />
             </a>
             <div>
@@ -33,8 +33,7 @@
                         <div class="submenu" *ngIf="cat.children && cat.children.length > 0">
                             <ng-container *ngFor="let sub of cat.children">
                                 <div *ngIf="sub.children && sub.children.length > 0" class="submenu-group has-submenu">
-                                    <a 
-                                        [routerLink]="['/shop/category',sub.id]" 
+                                    <a
                                         class="submenu-toggle"
                                     >
                                         <ng-container *ngIf="sub.iconImage; else subDefaultIcon">

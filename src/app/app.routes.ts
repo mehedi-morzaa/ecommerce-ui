@@ -9,13 +9,12 @@ import { PurchaseGuidePage } from './ecommerce/pages/purchase-guide/purchase-gui
 import { Shop } from './ecommerce/pages/shop/shop';
 
 export const routes: Routes = [
-    {path: '', component: HomePage},
+    {path: '', component: HomePage, pathMatch: 'full'},
     {path: 'about', component: AboutPage},
     {path: 'contact', component: ContactPage},
     {path: 'terms', component: TermsPage},
     {path: 'privacy-policy', component: PrivacyPolicyPage},
     {path: 'purchase-guide', component: PurchaseGuidePage},
     {path: 'shop/category/:categoryId', component: Shop},
-    {path: 'shop/brand/:brandId', component: Shop},
     {path: '**', component: NotFoundPage},
 ];
