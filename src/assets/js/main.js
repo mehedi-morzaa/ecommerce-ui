@@ -34,40 +34,40 @@
     new WOW().init();
 
     //sidebar sticky
-    if ($(".sticky-sidebar").length) {
-        $(".sticky-sidebar").theiaStickySidebar();
-    }
+    // if ($(".sticky-sidebar").length) {
+    //     $(".sticky-sidebar").theiaStickySidebar();
+    // }
 
     // Slider Range JS
-    if ($("#slider-range").length) {
-        $(".noUi-handle").on("click", function () {
-            $(this).width(50);
-        });
-        var rangeSlider = document.getElementById("slider-range");
-        var moneyFormat = wNumb({
-            decimals: 0,
-            thousand: ",",
-            prefix: "$"
-        });
-        noUiSlider.create(rangeSlider, {
-            start: [500, 1000],
-            step: 1,
-            range: {
-                min: [0],
-                max: [2000]
-            },
-            format: moneyFormat,
-            connect: true
-        });
+    // if ($("#slider-range").length) {
+    //     $(".noUi-handle").on("click", function () {
+    //         $(this).width(50);
+    //     });
+    //     var rangeSlider = document.getElementById("slider-range");
+    //     var moneyFormat = wNumb({
+    //         decimals: 0,
+    //         thousand: ",",
+    //         prefix: "$"
+    //     });
+    //     noUiSlider.create(rangeSlider, {
+    //         start: [500, 1000],
+    //         step: 1,
+    //         range: {
+    //             min: [0],
+    //             max: [2000]
+    //         },
+    //         format: moneyFormat,
+    //         connect: true
+    //     });
 
-        // Set visual min and max values and also update value hidden form inputs
-        rangeSlider.noUiSlider.on("update", function (values, handle) {
-            document.getElementById("slider-range-value1").innerHTML = values[0];
-            document.getElementById("slider-range-value2").innerHTML = values[1];
-            document.getElementsByName("min-value").value = moneyFormat.from(values[0]);
-            document.getElementsByName("max-value").value = moneyFormat.from(values[1]);
-        });
-    }
+    //     // Set visual min and max values and also update value hidden form inputs
+    //     rangeSlider.noUiSlider.on("update", function (values, handle) {
+    //         document.getElementById("slider-range-value1").innerHTML = values[0];
+    //         document.getElementById("slider-range-value2").innerHTML = values[1];
+    //         document.getElementsByName("min-value").value = moneyFormat.from(values[0]);
+    //         document.getElementsByName("max-value").value = moneyFormat.from(values[1]);
+    //     });
+    // }
 
     /*------ Hero slider 1 ----*/
     $(".hero-slider-1").slick({
@@ -428,32 +428,6 @@
         }
     });
 
-    /*-------------------------------
-        Sort by active
-    -----------------------------------*/
-    if ($(".sort-by-product-area").length) {
-        var $body = $("body"),
-            $cartWrap = $(".sort-by-product-area"),
-            $cartContent = $cartWrap.find(".sort-by-dropdown");
-        $cartWrap.on("click", ".sort-by-product-wrap", function (e) {
-            e.preventDefault();
-            var $this = $(this);
-            if (!$this.parent().hasClass("show")) {
-                $this.siblings(".sort-by-dropdown").addClass("show").parent().addClass("show");
-            } else {
-                $this.siblings(".sort-by-dropdown").removeClass("show").parent().removeClass("show");
-            }
-        });
-        /*Close When Click Outside*/
-        $body.on("click", function (e) {
-            var $target = e.target;
-            if (!$($target).is(".sort-by-product-area") && !$($target).parents().is(".sort-by-product-area")) {
-                $cartWrap.removeClass("show");
-                $cartContent.removeClass("show");
-            }
-        });
-    }
-
     /*-----------------------
         Shop filter active
     ------------------------- */
@@ -727,4 +701,95 @@
         showItems: 1
     });
 })(jQuery);
+
+
+/*-------------------------------
+    Sort by active
+-----------------------------------*/
+window.initSortByDropdown = function () {
+  jQuery(function ($) {
+    if ($(".sort-by-product-area").length) {
+      var $body = $("body"),
+        $cartWrap = $(".sort-by-product-area"),
+        $cartContent = $cartWrap.find(".sort-by-dropdown");
+
+      $cartWrap.off("click.sortby").on("click.sortby", ".sort-by-product-wrap", function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        if (!$this.parent().hasClass("show")) {
+          $this.siblings(".sort-by-dropdown").addClass("show").parent().addClass("show");
+        } else {
+          $this.siblings(".sort-by-dropdown").removeClass("show").parent().removeClass("show");
+        }
+      });
+
+      $body.off("click.sortbyclose").on("click.sortbyclose", function (e) {
+        var $target = e.target;
+        if (!$($target).is(".sort-by-product-area") && !$($target).parents().is(".sort-by-product-area")) {
+          $cartWrap.removeClass("show");
+          $cartContent.removeClass("show");
+        }
+      });
+    }
+  });
+};
+
+window.initSidebarEnhancements = function () {
+  jQuery(function ($) {
+
+    // ✅ Sticky Sidebar
+    if ($(".sticky-sidebar").length && typeof $.fn.theiaStickySidebar === 'function') {
+      $(".sticky-sidebar").theiaStickySidebar();
+    }
+
+    console.log('🔍 initSidebarEnhancements triggered');
+    console.log('✅ jQuery:', typeof $);
+    console.log('✅ noUiSlider:', typeof noUiSlider);
+    console.log('✅ wNumb:', typeof wNumb);
+    console.log('✅ #slider-range exists:', !!document.getElementById('slider-range'));
+
+    // ✅ Slider Range
+    if ($("#slider-range").length && typeof noUiSlider !== 'undefined' && typeof wNumb !== 'undefined') {
+      const rangeSlider = document.getElementById("slider-range");
+
+      if (!rangeSlider.noUiSlider) {
+        const moneyFormat = wNumb({
+          decimals: 0,
+          thousand: ",",
+          prefix: "$"
+        });
+
+        noUiSlider.create(rangeSlider, {
+          start: [500, 1000],
+          step: 1,
+          range: {
+            min: [0],
+            max: [2000]
+          },
+          format: moneyFormat,
+          connect: true
+        });
+
+        rangeSlider.noUiSlider.on("update", function (values, handle) {
+          $("#slider-range-value1").html(values[0]);
+          $("#slider-range-value2").html(values[1]);
+
+          const minInputs = $("input[name='min-value']");
+          const maxInputs = $("input[name='max-value']");
+
+          if (minInputs.length) minInputs.val(moneyFormat.from(values[0]));
+          if (maxInputs.length) maxInputs.val(moneyFormat.from(values[1]));
+        });
+
+        $(".noUi-handle").off("click.slider").on("click.slider", function () {
+          $(this).width(50);
+        });
+      }
+    } else {
+      console.warn("Slider dependencies not loaded or #slider-range missing");
+    }
+  });
+};
+
+
 

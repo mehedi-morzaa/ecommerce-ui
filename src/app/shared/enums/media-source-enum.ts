@@ -1,4 +1,5 @@
 export enum MediaSourceEnum {
 Inventory = 'inventory',
-Cms = 'cms'
+Cms = 'cms',
+EcommerceGateway = 'ecommerce-gateway'
 }
