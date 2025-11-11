@@ -1,0 +1,43 @@
+
+<section class="py-5">
+  <div class="container">
+    <!-- Section Title with Arrows -->
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+      <h3 class="fw-bold mb-2">Featured Brands</h3>
+      <div class="d-flex">
+        <button class="btn btn-sm me-2" (click)="prevPage()" [disabled]="currentPage() === 0">
+                   <i class="icon material-icons md-arrow_back"></i>
+        </button>
+        <button class="btn btn-sm" (click)="nextPage()" [disabled]="endIndex() >= brands().length">
+                    <i class="icon material-icons md-arrow_forward"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Always one row, centered -->
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      @if(brands().length > 0){ @for (item of visibleBrands(); track $index) {
+      <div 
+      class="card text-center" 
+      style="width: 120px; cursor: pointer;"
+      [routerLink]="['/shop/brand/', item.id]"
+      >
+        <img
+          [src]="getImageSrc(item.thumbImage ?? '')"
+          [alt]="item.name"
+          class="card-img-top img-fluid"
+          style="height: 100px; object-fit: contain; background: #f8f9fa"
+        />
+        <div class="card-body p-2">
+          <h6 class="card-title mb-1" style="font-size: 0.8rem">
+              {{ item.name }}
+          </h6>
+          <small class="text-muted">{{ item.productCount }} items</small>
+        </div>
+      </div>
+      }}@else {
+      <span class="text-center">No brand found!</span>
+      }
+    </div>
+  </div>
+</section>

@@ -31,8 +31,8 @@
     </div> -->
     <div class="product-card-bottom">
       <div class="product-price">
-        <span>${{ product.basePrice }}</span>
-        <span class="old-price" *ngIf="product.basePrice">${{ product.basePrice }}</span>
+        <span>${{ product.isOnPromotion ? product.latestPrice : product.basePrice }}</span>
+        <span class="old-price" *ngIf="product.isOnPromotion">${{ product.basePrice }}</span>
       </div>
       <div class="add-cart">
         <a class="add" routerLink="/shop-cart"><i class="fi-rs-shopping-cart mr-5"></i>Add</a>

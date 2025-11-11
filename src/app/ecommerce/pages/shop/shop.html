@@ -1,121 +1,89 @@
-
 <div class="container mb-30">
-            <div class="row">
-                <div class="col-lg-4-5">
-                    <div class="shop-product-fillter">
-                        <div class="totall-product">
-                            <p>We found <strong class="text-brand">{{sortedProductList().length}}</strong> items for you!</p>
-                        </div>
-                        <!-- <div class="sort-by-product-area">
-                            <div class="sort-by-cover">
-                                <div class="sort-by-product-wrap">
-                                    <div class="sort-by">
-                                        <span><i class="fi-rs-apps-sort"></i>Sort by:</span>
-                                    </div>
-                                    <div class="sort-by-dropdown-wrap">
-                                        <span> Featured <i class="fi-rs-angle-small-down"></i></span>
-                                    </div>
-                                </div>
-                                <div class="sort-by-dropdown">
-                                    <ul>
-                                        <li><a class="active" href="#">Featured</a></li>
-                                        <li><a href="#">Price: Low to High</a></li>
-                                        <li><a href="#">Price: High to Low</a></li>
-                                        <li><a href="#">Release Date</a></li>
-                                        <li><a href="#">Avg. Rating</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="sort-by-product-area">
-                            <div class="sort-by-cover">
-                                <div class="sort-by-product-wrap">
-                                <div class="sort-by">
-                                    <span><i class="fi-rs-apps-sort"></i>Sort by:</span>
-                                </div>
-                                <div class="sort-by-dropdown-wrap">
-                                    <span>
-                                    {{getSelectedSortLabel()}}
-                                    <i class="fi-rs-angle-small-down"></i>
-                                    </span>
-                                </div>
-                                </div>
-                                <div class="sort-by-dropdown">
-                                <ul>
-                                    <li
-                                    *ngFor="let option of sortOptions"
-                                    
-                                    >
-                                    <a [class.active]="selectedSort() === option.value" (click)="onSortChange($event, option.value)">
-                                        {{ option.label }}
-                                    </a>
-                                    </li>
-                                </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <app-product-list [products]="sortedProductList()"></app-product-list>
-                </div>
-                <div class="col-lg-1-5 primary-sidebar sticky-sidebar">
-                    <!-- Fillter By Price -->
-                    <div class="sidebar-widget price_range range mb-30">
-                        <h5 class="section-title style-1 mb-30">Fillter</h5>
-                        <div class="list-group">
-                            <div class="list-group-item mb-10 mt-10">
-                                <ng-container *ngIf="viewMode() === 'category'">
-                                    <label class="fw-900">Category</label>
-                                    <div class="custome-checkbox">
-                                    <ng-container *ngFor="let cat of categoryList(); let i = index">
-                                        <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        [id]="'categoryCheckbox' + i"
-                                        [value]="cat.categoryName"
-                                        name="category"
-                                        />
-                                        <label class="form-check-label" [for]="'categoryCheckbox' + i">
-                                        <span>{{ cat.categoryName }} ({{ cat.productCount }})</span>
-                                        </label>
-                                        <br />
-                                    </ng-container>
-                                    </div>
-                                </ng-container>
-                                <ng-container *ngIf="viewMode() === 'brand'">
-                                    <label class="fw-900">Brand</label>
-                                    <div class="custome-checkbox">
-                                    <ng-container *ngFor="let brand of brandList(); let i = index">
-                                        <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        [id]="'brandCheckbox' + i"
-                                        [value]="brand.name"
-                                        name="brand"
-                                        />
-                                        <label class="form-check-label" [for]="'brandCheckbox' + i">
-                                        <span>{{ brand.name }} ({{ brand.productCount }})</span>
-                                        </label>
-                                        <br />
-                                    </ng-container>
-                                    </div>
-                                </ng-container>
-
-                                <label class="fw-900">Color</label>
-                                <div class="custome-checkbox">
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="" />
-                                    <label class="form-check-label" for="exampleCheckbox1"><span>Red (56)</span></label>
-                                    <br />
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox2" value="" />
-                                    <label class="form-check-label" for="exampleCheckbox2"><span>Green (78)</span></label>
-                                    <br />
-                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="" />
-                                    <label class="form-check-label" for="exampleCheckbox3"><span>Blue (54)</span></label>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> Fillter</a>
-                    </div>
-            </div>
+  <div class="row">
+    <div class="col-lg-4-5">
+      <div class="shop-product-fillter">
+        <div class="totall-product">
+          <p>
+            We found <strong class="text-brand">{{ sortedProductList().length }}</strong> items for
+            you!
+          </p>
         </div>
+        <div class="sort-by-product-area">
+          <div class="sort-by-cover">
+            <div class="sort-by-product-wrap">
+              <div class="sort-by">
+                <span><i class="fi-rs-apps-sort"></i>Sort by:</span>
+              </div>
+              <div class="sort-by-dropdown-wrap">
+                <span>
+                  {{ getSelectedSortLabel() }}
+                  <i class="fi-rs-angle-small-down"></i>
+                </span>
+              </div>
+            </div>
+            <div class="sort-by-dropdown">
+              <ul>
+                <li *ngFor="let option of sortOptions">
+                  <a
+                    [class.active]="selectedSort() === option.value"
+                    (click)="onSortChange($event, option.value)"
+                  >
+                    {{ option.label }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <app-product-list [products]="sortedProductList()"></app-product-list>
+    </div>
+    <div class="col-lg-1-5 primary-sidebar sticky-sidebar">
+      <!-- Fillter By Price -->
+      <div class="sidebar-widget price_range range mb-30">
+        <h5 class="section-title style-1 mb-30">Fillter</h5>
+        <div class="list-group">
+          <div class="list-group-item mb-10 mt-10">
+            <ng-container *ngIf="viewMode() === 'category'">
+              <label class="fw-900">Category</label>
+              <div class="custome-checkbox">
+                <ng-container *ngFor="let cat of categoryList(); let i = index">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [id]="'categoryCheckbox' + i"
+                    [value]="cat.categoryName"
+                    name="category"
+                    (change)="onCategoryChange($event)"
+                  />
+                  <label class="form-check-label" [for]="'categoryCheckbox' + i">
+                    <span>{{ cat.categoryName }} ({{ cat.productCount }})</span>
+                  </label>
+                  <br />
+                </ng-container>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="viewMode() === 'brand'">
+              <label class="fw-900">Brand</label>
+              <div class="custome-checkbox">
+                <ng-container *ngFor="let brand of brandList(); let i = index">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [id]="'brandCheckbox' + i"
+                    [value]="brand.name"
+                    name="brand"
+                    (change)="onBrandChange($event)"
+                  />
+                  <label class="form-check-label" [for]="'brandCheckbox' + i">
+                    <span>{{ brand.name }} ({{ brand.productCount }})</span>
+                  </label>
+                  <br />
+                </ng-container>
+              </div>
+            </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

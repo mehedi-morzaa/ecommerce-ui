@@ -28,7 +28,7 @@
   }
   ,
     "/inventory-image": {
-    "target": "https://localhost:7280",
+    "target": "http://192.168.68.118:5005",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
