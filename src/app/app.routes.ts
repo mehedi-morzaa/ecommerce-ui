@@ -16,5 +16,6 @@ export const routes: Routes = [
     {path: 'privacy-policy', component: PrivacyPolicyPage},
     {path: 'purchase-guide', component: PurchaseGuidePage},
     {path: 'shop/category/:categoryId', component: Shop},
+    {path: 'shop/brand/:brandId', component: Shop},
     {path: '**', component: NotFoundPage},
 ];

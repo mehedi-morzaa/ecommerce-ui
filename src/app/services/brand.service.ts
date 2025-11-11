@@ -12,6 +12,9 @@ export class BrandService {
 
   constructor(private masterService: MasterService) {}
 
+  getAll() : Observable<ApiResponse> {
+    return this.masterService.get<ApiResponse>(Common.EcommerceGatewayBaseApiUrl,`${this.endpoint}/brands`);
+  }
   getAllByCategoryId(categoryId: number) : Observable<ApiResponse> {
     return this.masterService.get<ApiResponse>(Common.EcommerceGatewayBaseApiUrl,`${this.endpoint}/brands/${categoryId}`);
   }

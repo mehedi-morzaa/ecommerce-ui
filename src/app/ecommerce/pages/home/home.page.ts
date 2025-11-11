@@ -1,12 +1,12 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { PopularProducts } from "../popular-products/popular-products";
-import { ProductList } from "../product/product-list/product-list";
 import { ProductVM } from '../../../models/product.model';
 import { ProductService } from '../../../services/product.service';
+import { Brands } from "./brands/brands";
+import { PopularProducts } from "../popular-products/popular-products";
 
 @Component({
   selector: 'page-home',
-  imports: [PopularProducts, ProductList],
+  imports: [Brands, PopularProducts],
   templateUrl: './home.page.html',
 })
 export class HomePage implements OnInit{
