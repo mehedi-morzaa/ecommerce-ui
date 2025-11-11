@@ -728,6 +728,7 @@ window.initSortByDropdown = function () {
         if (!$($target).is(".sort-by-product-area") && !$($target).parents().is(".sort-by-product-area")) {
           $cartWrap.removeClass("show");
           $cartContent.removeClass("show");
+          $(".sort-by-cover").removeClass("show"); 
         }
       });
     }
