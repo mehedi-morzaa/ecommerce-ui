@@ -3,10 +3,13 @@ import { ProductVM } from '../../../models/product.model';
 import { ProductService } from '../../../services/product.service';
 import { Brands } from "./brands/brands";
 import { PopularProducts } from "../popular-products/popular-products";
+import { LatestProducts } from "../../components/latest-products/latest-products";
+import { PromotionalProducts } from "../../components/promotional-products/promotional-products";
+import { Banner } from "../../components/banner/banner";
 
 @Component({
   selector: 'page-home',
-  imports: [Brands, PopularProducts],
+  imports: [Brands, PopularProducts, LatestProducts, PromotionalProducts, Banner],
   templateUrl: './home.page.html',
 })
 export class HomePage implements OnInit{

@@ -38,36 +38,35 @@
     //     $(".sticky-sidebar").theiaStickySidebar();
     // }
 
-    // Slider Range JS
-    // if ($("#slider-range").length) {
-    //     $(".noUi-handle").on("click", function () {
-    //         $(this).width(50);
-    //     });
-    //     var rangeSlider = document.getElementById("slider-range");
-    //     var moneyFormat = wNumb({
-    //         decimals: 0,
-    //         thousand: ",",
-    //         prefix: "$"
-    //     });
-    //     noUiSlider.create(rangeSlider, {
-    //         start: [500, 1000],
-    //         step: 1,
-    //         range: {
-    //             min: [0],
-    //             max: [2000]
-    //         },
-    //         format: moneyFormat,
-    //         connect: true
-    //     });
+    if ($("#slider-range").length) {
+        $(".noUi-handle").on("click", function () {
+            $(this).width(50);
+        });
+        var rangeSlider = document.getElementById("slider-range");
+        var moneyFormat = wNumb({
+            decimals: 0,
+            thousand: ",",
+            prefix: "$"
+        });
+        noUiSlider.create(rangeSlider, {
+            start: [500, 1000],
+            step: 1,
+            range: {
+                min: [0],
+                max: [2000]
+            },
+            format: moneyFormat,
+            connect: true
+        });
 
-    //     // Set visual min and max values and also update value hidden form inputs
-    //     rangeSlider.noUiSlider.on("update", function (values, handle) {
-    //         document.getElementById("slider-range-value1").innerHTML = values[0];
-    //         document.getElementById("slider-range-value2").innerHTML = values[1];
-    //         document.getElementsByName("min-value").value = moneyFormat.from(values[0]);
-    //         document.getElementsByName("max-value").value = moneyFormat.from(values[1]);
-    //     });
-    // }
+        // Set visual min and max values and also update value hidden form inputs
+        rangeSlider.noUiSlider.on("update", function (values, handle) {
+            document.getElementById("slider-range-value1").innerHTML = values[0];
+            document.getElementById("slider-range-value2").innerHTML = values[1];
+            document.getElementsByName("min-value").value = moneyFormat.from(values[0]);
+            document.getElementsByName("max-value").value = moneyFormat.from(values[1]);
+        });
+    }
 
     /*------ Hero slider 1 ----*/
     $(".hero-slider-1").slick({
@@ -260,6 +259,7 @@
         var $this = $(this),
             finalDate = $(this).data("countdown");
         $this.countdown(finalDate, function (event) {
+          console.log('countdown working');
             $(this).html(event.strftime("" + '<span class="countdown-section"><span class="countdown-amount hover-up">%D</span><span class="countdown-period"> days </span></span>' + '<span class="countdown-section"><span class="countdown-amount hover-up">%H</span><span class="countdown-period"> hours </span></span>' + '<span class="countdown-section"><span class="countdown-amount hover-up">%M</span><span class="countdown-period"> mins </span></span>' + '<span class="countdown-section"><span class="countdown-amount hover-up">%S</span><span class="countdown-period"> sec </span></span>'));
         });
     });
@@ -728,7 +728,7 @@ window.initSortByDropdown = function () {
         if (!$($target).is(".sort-by-product-area") && !$($target).parents().is(".sort-by-product-area")) {
           $cartWrap.removeClass("show");
           $cartContent.removeClass("show");
-          $(".sort-by-cover").removeClass("show"); 
+          $(".sort-by-cover").removeClass("show");
         }
       });
     }

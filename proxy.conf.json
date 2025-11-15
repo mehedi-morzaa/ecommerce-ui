@@ -1,6 +1,6 @@
 {
   "/inventory-api": {
-    "target": "https://localhost:7204",
+    "target": "https://localhost:7280",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
@@ -28,7 +28,7 @@
   }
   ,
     "/inventory-image": {
-    "target": "http://192.168.68.118:5005",
+    "target": "https://localhost:7204",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",

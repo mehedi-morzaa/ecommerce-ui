@@ -7,6 +7,7 @@ import { PrivacyPolicyPage } from './ecommerce/pages/privacy-policy/privacy-poli
 import { NotFoundPage } from './ecommerce/pages/not-found/not-found.page';
 import { PurchaseGuidePage } from './ecommerce/pages/purchase-guide/purchase-guide.page';
 import { Shop } from './ecommerce/pages/shop/shop';
+import { ProductDetails } from './ecommerce/pages/product-details/product-details';
 
 export const routes: Routes = [
     {path: '', component: HomePage, pathMatch: 'full'},
@@ -17,5 +18,6 @@ export const routes: Routes = [
     {path: 'purchase-guide', component: PurchaseGuidePage},
     {path: 'shop/category/:categoryId', component: Shop},
     {path: 'shop/brand/:brandId', component: Shop},
+    {path: 'shop/product-details/:productId', component: ProductDetails},
     {path: '**', component: NotFoundPage},
 ];

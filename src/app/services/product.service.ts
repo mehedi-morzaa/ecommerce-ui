@@ -19,4 +19,8 @@ export class ProductService {
   getAllByBrandId(id: number = 0) : Observable<ApiResponse> {
     return this.masterService.get<ApiResponse>(Common.EcommerceGatewayBaseApiUrl,`${this.endpoint}/product/getall-by-brandid?brandId=${id}`);
   }
+
+  getProductDetails(id:number) : Observable<ApiResponse>{
+    return this.masterService.get<ApiResponse>(Common.EcommerceGatewayBaseApiUrl,`${this.endpoint}/product/by-id?productVariantId=${id}`);
+  }
 }
